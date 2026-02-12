@@ -10,4 +10,4 @@ wheels/
 .venv
 
 # Model artifacts (upload all Data/ except the raw dataset)
-Data/SMSSpamCollection
+Data/

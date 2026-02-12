@@ -19,7 +19,7 @@ Spam and ham detection for SMS/email text using a custom Bi-LSTM with self-atten
 - Notebook/: Experiment notebooks.
 
 ### Requirements
-- Python 3.14+
+- Python 3.12
 - Dependencies are listed in pyproject.toml.
 
 ### Setup
@@ -56,6 +56,9 @@ Pretrained assets used by the app and benchmarks:
 - Data/vocab.json (custom vocabulary)
 - Data/spam_classifier_model/ (DistilBERT artifacts)
 
+Download pretrained models from:
+- https://huggingface.co/Mlboy23/Attention_LSTM
+
 ### Train the Bi-LSTM + Attention Model
 ```bash
 python pipeline/training_pipeline.py
@@ -91,6 +94,42 @@ Exploration and model experiments are available in:
 - Notebook/DistilBert.ipynb
 - Notebook/Fast_Text.ipynb
 
+### Deployment to Hugging Face Spaces
+
+1. Create a new Space on [Hugging Face](https://huggingface.co/spaces):
+   - Choose "Gradio" as the SDK
+   - Select your preferred hardware (CPU or GPU)
+
+2. Install Git LFS (if not already installed):
+   ```bash
+   git lfs install
+   ```
+
+3. Clone your Space repository and add the project files:
+   ```bash
+   git clone https://huggingface.co/spaces/<your-username>/<your-space-name>
+   cp -r * <your-space-name>/
+   cd <your-space-name>
+   ```
+
+4. Track large files with Git LFS:
+   ```bash
+   git lfs track "*.pth"
+   git lfs track "*.npy"
+   git lfs track "*.model"
+   git lfs track "*.bin"
+   ```
+
+5. Commit and push to Hugging Face:
+   ```bash
+   git add .
+   git commit -m "Deploy spam classifier to HF Spaces"
+   git push
+   ```
+
+Your app will be live at: `https://huggingface.co/spaces/<your-username>/<your-space-name>`
+
 ### Notes
 - The Bi-LSTM pipeline expects a FastText model at Data/spam_fasttext_gensim.model.
 - DistilBERT artifacts are loaded from Data/spam_classifier_model; if missing, the base model is used.
+- For Hugging Face Spaces deployment, Git LFS is required for files larger than 10MB.
