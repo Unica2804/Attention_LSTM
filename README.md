@@ -2,6 +2,17 @@
 
 Spam and ham detection for SMS/email text using a custom Bi-LSTM with self-attention and a DistilBERT baseline. The project includes training and inference pipelines, a Gradio demo to compare both models side by side, and scripts to benchmark accuracy/latency.
 
+# Demo Video
+
+Below is a demo of the project in action:
+
+<p align="center">
+   <video width="600" controls>
+      <source src="assets/output.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+   </video>
+</p>
+
 ### Highlights
 - Two model paths: Bi-LSTM + self-attention vs. DistilBERT sequence classifier.
 - Clean text preprocessing tailored to spam signals (URLs, emails, currency, repetition).
