@@ -6,12 +6,7 @@ Spam and ham detection for SMS/email text using a custom Bi-LSTM with self-atten
 
 Below is a demo of the project in action:
 
-<p align="center">
-   <video width="600" controls>
-      <source src="assets/output.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-   </video>
-</p>
+![Project Demo](assets/output.gif)
 
 ### Highlights
 - Two model paths: Bi-LSTM + self-attention vs. DistilBERT sequence classifier.
